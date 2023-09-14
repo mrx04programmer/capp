@@ -11,29 +11,33 @@ P = '\033[1;35m'  # purple
 C = '\033[1;36m'  # cyan
 GRs = '\033[1;37m'  # gray
 
-err = f"{O}ERR{W}"
-add = f"{B}ADD{W}"
-info = f"{G}INFO{W}"
 
 
 
 def banner():
     print(f"{O}")
 
-def dopper(utl, host):
+def dopper(utl):
     if "t" in utl:
+        host = sys.argv[2]
         icmp_trace(host)
     elif "h" in utl:
         helper()
-
+    elif "c" in utl:
+        host = sys.argv[2]
+        port = sys.argv[3]
+        if len(sys.argv) == 4:
+            connect(host, port)
+        return f"{err}missing set port\n{use}"
+    else:
+        return use
 def main():
     if len(sys.argv) == 1:
         print(f"{err} Usage: python3 {sys.argv[0]} <options> <host> <port>")
     else:
-        utl = sys.argv[1]
-        host = sys.argv[2]
         banner()
-        dopper(utl, host)
+        utl = sys.argv[1]
+        dopper(utl)
 
 if __name__ == "__main__":
     try:
