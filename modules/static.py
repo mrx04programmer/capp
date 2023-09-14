@@ -1,5 +1,15 @@
 from scapy.all import *
 from colors import *
+import sys
+
+def helper():
+    print(f"""
+          {B}Usage {W}python3 {sys.argv[0]} <options> <host> <port>
+          {R}Options:
+            {O}t:{W}normal mode -> Trace ICMP
+            {O}h:{W}http mode -> HTTP Sniffer <Filter IP>
+            {O}c:{W}connect mode -> Connect directly host and port""")
+
 def icmp_trace(target, max_hops=30, timeout=2):
     ttl = 1
     while True:
