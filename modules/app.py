@@ -26,7 +26,7 @@ def dopper(utl, host):
 
 def main():
     if len(sys.argv) == 1:
-        print(f"{err} Usage: {sys.argv[0]} <options> <host> <port>")
+        print(f"{err} Usage: python3 {sys.argv[0]} <options> <host> <port>")
     else:
         utl = sys.argv[1]
         host = sys.argv[2]
