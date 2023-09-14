@@ -21,8 +21,10 @@ def banner():
     print(f"{O}")
 
 def dopper(utl, host):
-    if "n" in utl:
+    if "t" in utl:
         icmp_trace(host)
+    elif "h" in utl:
+        helper()
 
 def main():
     if len(sys.argv) == 1:
