@@ -22,6 +22,8 @@ def connect(host, port):
         sock.connect((host, int(port)))
         print(f"{info} connected successful !")
         return True
+    except ConnectionRefusedError:
+        print(f"{err} port {port} not available ")
     except Exception as e:
         print(f'{err} conection error -> {O}{e}\n')
 
