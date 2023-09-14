@@ -7,7 +7,7 @@ setup(
     author='mrx04programmer',
     packages=find_packages(),
     install_requires=[
-        # Dependencies
+        'scapy'
         
     ],
 )
