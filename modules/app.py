@@ -15,7 +15,11 @@ GRs = '\033[1;37m'  # gray
 
 
 def banner():
-    print(f"{O}")
+    print(f"""{O}
+┏┓      
+┃ ┏┓┏┓┏┓
+┗┛┗┻┣┛┣┛
+    ┛ ┛ {R}by {W}mrx04programmer""")
 
 def dopper(utl):
     if "t" in utl:
