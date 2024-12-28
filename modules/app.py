@@ -33,6 +33,26 @@ def dopper(utl):
         if len(sys.argv) == 4:
             connect(host, port)
         return f"{err}missing set port\n{use}"
+    elif "s" in utl:
+        if len(sys.argv) < 3:
+            return f"{err}Falta especificar el host objetivo\n{use}"
+        host = sys.argv[2]
+        port = 445  # Puerto por defecto para SMB
+        if len(sys.argv) > 3:
+            port = sys.argv[3]
+        enumerate_smb_users(host, port)
+    elif "p" in utl:
+        if len(sys.argv) < 3:
+            return f"{err}Falta especificar el host objetivo\n{use}"
+        host = sys.argv[2]
+        silent = "-s" in sys.argv
+        quick_port_scan(host, silent)
+    elif "v" in utl:
+        if len(sys.argv) < 4:
+            return f"{err}Uso: python {sys.argv[0]} v <host> <port>\n{use}"
+        host = sys.argv[2]
+        port = sys.argv[3]
+        check_vulnerabilities(host, port)
     else:
         return use
 def main():
